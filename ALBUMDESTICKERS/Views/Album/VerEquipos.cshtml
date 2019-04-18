@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ALBUMDESTICKERS.Models.Equipo>
+
+@{
+    ViewBag.Title = "VerEquipos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<img src='~/Images/PANINI logo.jpg' width="200" height="180" alt="imgf" />
+
+<h2>Equipos</h2>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", "Album")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEquipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obtenidas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faltantes)
+        </th>
+        <th>Ver Jugadores</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreEquipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obtenidas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faltantes)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "DetailsEquipo", new { id = item.NombreEquipo })
+            </td>
+        </tr>
+    }
+
+</table>

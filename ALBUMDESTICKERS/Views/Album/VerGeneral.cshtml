@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ALBUMDESTICKERS.Models.Jugador>
+
+@{
+    ViewBag.Title = "VerGeneral";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr />
+<img src='~/Images/PANINI logo.jpg' width="200" height="180" alt="imgf" />
+
+<h2>General</h2>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", "Album")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obtenida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Repetida)
+        </th>
+        <th>Editar Jugador</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obtenida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Repetida)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "DetallesGeneral", new { id = item.Nombre })
+            </td>
+        </tr>
+    }
+
+</table>
